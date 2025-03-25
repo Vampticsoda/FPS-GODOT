@@ -3,7 +3,7 @@
 An immersive first-person shooter built in Godot Engine 4.4, inspired by the intense action and tactical depth of Call of Duty.
 
 ## 🎯 Overview
--This project aims to create a realistic, fast-paced FPS experience combining strategic combat, dynamic AI, and a gripping story. Players face high-stakes missions where every decision shapes the outcome.
+- This project aims to create a realistic, - fast-paced FPS experience combining strategic combat, - dynamic AI, and a gripping story. - Players face high-stakes missions where every decision shapes the outcome.
 
 ## 🎮 Gameplay Features
 - ✅ Realistic Gun Mechanics – Bullet drop, recoil patterns, and hit detection.
