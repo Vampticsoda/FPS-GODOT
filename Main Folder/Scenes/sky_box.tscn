@@ -1,0 +1,30 @@
+[gd_scene load_steps=2 format=3 uid="uid://b71dnq0iovssk"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xbapi"]
+size = Vector3(400, 1, 400)
+
+[node name="SkyBox" type="StaticBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -100, 0)
+shape = SubResource("BoxShape3D_xbapi")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -200)
+shape = SubResource("BoxShape3D_xbapi")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 200)
+shape = SubResource("BoxShape3D_xbapi")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 200, 0)
+shape = SubResource("BoxShape3D_xbapi")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 200, 0, 0)
+shape = SubResource("BoxShape3D_xbapi")
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -200, 0, 0)
+shape = SubResource("BoxShape3D_xbapi")

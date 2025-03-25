@@ -1,0 +1,52 @@
+[gd_scene load_steps=5 format=3 uid="uid://db2h3t17k37pe"]
+
+[ext_resource type="PackedScene" uid="uid://dppb7d12fd2o5" path="res://Main Folder/Scenes/map.tscn" id="1_bc3am"]
+[ext_resource type="PackedScene" uid="uid://bvi6uwdibnlge" path="res://Main Folder/Scenes/player.tscn" id="2_3nm15"]
+[ext_resource type="PackedScene" uid="uid://b71dnq0iovssk" path="res://Main Folder/Scenes/sky_box.tscn" id="4_ghqkf"]
+[ext_resource type="PackedScene" uid="uid://co05emjls8vrl" path="res://Main Folder/Scenes/Enemy.tscn" id="5_4bbla"]
+
+[node name="World" type="Node3D"]
+
+[node name="Map" parent="." instance=ExtResource("1_bc3am")]
+
+[node name="Player" parent="." instance=ExtResource("2_3nm15")]
+
+[node name="Enemies" type="Node3D" parent="."]
+
+[node name="CharacterBody3D4" parent="Enemies" instance=ExtResource("5_4bbla")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.39539, 1.07175, -11.1598)
+
+[node name="Enemy" parent="Enemies" instance=ExtResource("5_4bbla")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.70312, 2.99418, -3.09241)
+
+[node name="enemy" parent="Enemies" instance=ExtResource("5_4bbla")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2915, 1.09522, 3.98698)
+
+[node name="Enemy2" parent="Enemies" instance=ExtResource("5_4bbla")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.6007, 2.10525, -0.728502)
+
+[node name="Enemy3" parent="Enemies" instance=ExtResource("5_4bbla")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.3965, 3.79171, -6.97409)
+
+[node name="CharacterBody3D" parent="Enemies" instance=ExtResource("5_4bbla")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.736711, 3.16561, 4.67535)
+
+[node name="CharacterBody3D2" parent="Enemies" instance=ExtResource("5_4bbla")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.26742, 3.56178, 0.311705)
+
+[node name="CharacterBody3D3" parent="Enemies" instance=ExtResource("5_4bbla")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.25385, 3.80361, -4.83298)
+
+[node name="CharacterBody3D5" parent="Enemies" instance=ExtResource("5_4bbla")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.9757, 0.961036, -13.1902)
+
+[node name="CharacterBody3D6" parent="Enemies" instance=ExtResource("5_4bbla")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.0267, 0.861282, -4.96862)
+
+[node name="CharacterBody3D7" parent="Enemies" instance=ExtResource("5_4bbla")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.68338, 0.945019, -14.8674)
+
+[node name="CharacterBody3D8" parent="Enemies" instance=ExtResource("5_4bbla")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.93383, 0.940709, -8.33802)
+
+[node name="SkyBox" parent="." instance=ExtResource("4_ghqkf")]

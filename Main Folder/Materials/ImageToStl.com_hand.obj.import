@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dmh81lwg3yn5b"
+path="res://.godot/imported/ImageToStl.com_hand.obj-4d97dbb3e45623c2f00b5bd1409316fc.mesh"
+
+[deps]
+
+files=["res://.godot/imported/ImageToStl.com_hand.obj-4d97dbb3e45623c2f00b5bd1409316fc.mesh"]
+
+source_file="res://Main Folder/Materials/ImageToStl.com_hand.obj"
+dest_files=["res://.godot/imported/ImageToStl.com_hand.obj-4d97dbb3e45623c2f00b5bd1409316fc.mesh", "res://.godot/imported/ImageToStl.com_hand.obj-4d97dbb3e45623c2f00b5bd1409316fc.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

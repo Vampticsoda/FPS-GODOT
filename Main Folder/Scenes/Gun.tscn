@@ -1,0 +1,102 @@
+[gd_scene load_steps=9 format=3 uid="uid://de8a04k5opnn2"]
+
+[ext_resource type="ArrayMesh" uid="uid://dgdugw0ubbgh6" path="res://Main Folder/Materials/Railgun.res" id="1_0erat"]
+[ext_resource type="Script" uid="uid://hvc84bxf4vdq" path="res://Main Folder/Scripts/Gun.gd" id="2_f1yoq"]
+[ext_resource type="Script" uid="uid://gf1gdlli21ma" path="res://Main Folder/Scripts/Muzzle.gd" id="3_roitj"]
+[ext_resource type="Script" uid="uid://bu26l8biqetvg" path="res://Main Folder/Scripts/AnimationPlayer.gd" id="4_vb3ix"]
+
+[sub_resource type="Animation" id="Animation_po57m"]
+resource_name = "AIDS"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ewnft"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MeshInstance3D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_fiscg"]
+resource_name = "gunfire"
+length = 0.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0.174533, 0, 0), Vector3(6.28319, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MeshInstance3D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, -0.04, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1lkty"]
+_data = {
+&"AIDS": SubResource("Animation_po57m"),
+&"RESET": SubResource("Animation_ewnft"),
+&"gunfire": SubResource("Animation_fiscg")
+}
+
+[node name="MeshInstance3D" type="MeshInstance3D"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+mesh = ExtResource("1_0erat")
+script = ExtResource("2_f1yoq")
+
+[node name="Muzzle" type="Node3D" parent="."]
+transform = Transform3D(-2, 0, -1.74846e-07, 0, 2, 0, 1.74846e-07, 0, -2, 0.317016, 0.88136, 0.201579)
+script = ExtResource("3_roitj")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../..")
+libraries = {
+&"": SubResource("AnimationLibrary_1lkty")
+}
+autoplay = "gunfire"
+script = ExtResource("4_vb3ix")

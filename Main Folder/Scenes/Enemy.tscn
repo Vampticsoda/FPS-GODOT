@@ -1,0 +1,133 @@
+[gd_scene load_steps=16 format=3 uid="uid://co05emjls8vrl"]
+
+[ext_resource type="Script" uid="uid://txusq5603y61" path="res://Main Folder/Scripts/Enemy.gd" id="1_xgrbm"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ian5b"]
+radius = 0.6
+height = 2.1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wgvhj"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_48pw1"]
+material = SubResource("StandardMaterial3D_wgvhj")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ovbeg"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_vupiv"]
+material = SubResource("StandardMaterial3D_ovbeg")
+size = Vector3(0.04, 1.2, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v3cqn"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_70c0t"]
+material = SubResource("StandardMaterial3D_v3cqn")
+size = Vector3(0.04, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q8ajb"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_x04jo"]
+material = SubResource("StandardMaterial3D_q8ajb")
+size = Vector3(0.02, 0.04, 0.22)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qjfkl"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="TextMesh" id="TextMesh_7v3gt"]
+material = SubResource("StandardMaterial3D_qjfkl")
+text = "\\_____/"
+
+[sub_resource type="Animation" id="Animation_dd0f1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_p1w2n"]
+resource_name = "death"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1.03526),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(1.5708, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_osa4p"]
+_data = {
+&"RESET": SubResource("Animation_dd0f1"),
+&"death": SubResource("Animation_p1w2n")
+}
+
+[node name="Enemy" type="CharacterBody3D" groups=["Enemy"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.00589, 0)
+script = ExtResource("1_xgrbm")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+visibility_parent = NodePath("../MeshInstance3D")
+shape = SubResource("CapsuleShape3D_ian5b")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+visibility_parent = NodePath(".")
+mesh = SubResource("CapsuleMesh_48pw1")
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.12835, -0.0138121)
+billboard = 1
+text = "Enemy
+"
+font_size = 40
+uppercase = true
+
+[node name="Glasses" type="Node3D" parent="."]
+
+[node name="mesh" type="MeshInstance3D" parent="Glasses"]
+transform = Transform3D(1, 0, 0, 0, 0.146637, 0, 0, 0, 0.376537, 0.487664, 0.483052, 0.281138)
+mesh = SubResource("BoxMesh_vupiv")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Glasses"]
+transform = Transform3D(0.000366525, 0, -0.49817, 0, 0.0659548, 0, 1, 0, 0.000182592, 0.25919, 0.523428, 0.447379)
+mesh = SubResource("BoxMesh_70c0t")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Glasses"]
+transform = Transform3D(0.000366525, 0, -0.49817, 0, 0.0659548, 0, 1, 0, 0.000182592, 0.257897, 0.52351, -0.461657)
+mesh = SubResource("BoxMesh_70c0t")
+
+[node name="mesh3" type="MeshInstance3D" parent="Glasses"]
+transform = Transform3D(1, 0, 0, 0, 0.146637, 0, 0, 0, 0.376537, 0.487664, 0.483052, -0.295482)
+mesh = SubResource("BoxMesh_vupiv")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Glasses"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.497886, 0.535923, -0.00957698)
+mesh = SubResource("BoxMesh_x04jo")
+
+[node name="Smile" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Smile"]
+transform = Transform3D(0.00034912, 0, 1, 0.00249591, -0.999997, -8.71374e-07, 0.999997, 0.00249591, -0.000349119, 0.476843, 0.0650601, 0)
+mesh = SubResource("TextMesh_7v3gt")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_osa4p")
+}
